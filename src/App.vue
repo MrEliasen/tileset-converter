@@ -5,7 +5,7 @@
                 <img alt="Vue logo" src="./assets/logo.png">
             </div>
 
-            <div class="mt-5 lg:text-center">
+            <div class="mt-5 mb-6 lg:text-center">
                 <h2 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Tileset Converter
                 </h2>
@@ -19,10 +19,20 @@
                     :onFile="addImage"
                 />
 
-                <div v-if="files.length > 0" class="pt-6 text-right">
-                    <button @click="generateTilesets" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Process Images
-                    </button>
+                <div class="grid grid-cols-6 gap-4">
+                    <div class="col-span-5">
+                        <p class="text-l text-gray-500 lg:mx-auto">
+                            <span class="text-indigo-600">Step 1:</span> Upload the tilesets you want to convert.<br>
+                            <span class="text-indigo-600">Step 2:</span> If an image contains more than 1 tileset, specify how many for each image.<br>
+                            <span class="text-indigo-600">Step 3:</span> Click the "Generate" button! The new tilesets will appear next to each image.
+                        </p>
+                    </div>
+
+                    <div v-if="files.length > 0" class="col-span-1 text-right h-max flex items-center justify-end">
+                        <button @click="generateTilesets" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Generate!
+                        </button>
+                    </div>
                 </div>
             </div>
 
