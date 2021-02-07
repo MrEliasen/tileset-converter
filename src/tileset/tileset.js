@@ -1,10 +1,12 @@
 /* eslint no-unused-vars: 0 */
 import Tile47 from './templates/tile47.js'
 
-class TilesetCutter {
+class Tileset {
     constructor(file) {
         this.file = file;
         this.processing = false;
+        this.horizontalSheets = 1;
+        this.verticalSheets = 1;
 
         // holds the source file image
         const sourceCanvas = document.createElement("canvas");
@@ -244,4 +246,4 @@ class TilesetCutter {
     }
 }
 
-export default TilesetCutter;
+export default Tileset;

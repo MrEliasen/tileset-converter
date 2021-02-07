@@ -40,7 +40,7 @@
                 <previews
                     v-for="(file, index) in files"
                     :key="index"
-                    :file="file"
+                    :tileset="file"
                     :onDelete="removeImage"
                 />
             </div>
@@ -168,7 +168,7 @@
 <script>
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
-import TilesetCutter from './tileset/tileset_cutter.js'
+import Tileset from './tileset/tileset.js'
 
 export default {
     name: 'App',
@@ -198,7 +198,7 @@ export default {
         },
         async addImage(file) {
             try {
-                const newTilset = new TilesetCutter(file);
+                const newTilset = new Tileset(file);
                 await newTilset.load();
                 this.files.push(newTilset);
             } catch (error) {

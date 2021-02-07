@@ -5,7 +5,7 @@
                 <div class="col-span-1 flex relative rounded overflow-hidden flex items-start">
                     <img
                         class="w-full"
-                        :src="file.preview"
+                        :src="tileset.preview"
                         alt=""
                     >
                     <div
@@ -32,9 +32,9 @@
                     </div>
 
                     <img
-                        v-if="!file.processing"
+                        v-if="!tileset.processing"
                         class="w-full mt-4"
-                        :src="file.result.canvas.toDataURL('image/png')"
+                        :src="tileset.result.canvas.toDataURL('image/png')"
                         alt=""
                     >
                     <h3 v-else class="text-xl leading-6 font-medium text-center">
@@ -48,7 +48,7 @@
 <script>
     export default {
         props: {
-            file: Object,
+            tileset: Object,
             onDelete: Function
         }
     }
