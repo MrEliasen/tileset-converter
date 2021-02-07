@@ -1,5 +1,3 @@
-/* eslint no-unused-vars: 0 */
-
 class Tile47 {
     constructor(pieces, size) {
         this.size = size;
