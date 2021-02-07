@@ -86,8 +86,8 @@ class TilesetCutter {
 
         switch (this.type) {
             case '47':
-                height = this.size.tileSize * 6;
-                width = this.size.tileSize * 8;
+                height = this.size.tileSize * 4;
+                width = this.size.tileSize * 12;
                 break;
 
             case '16':
@@ -96,8 +96,8 @@ class TilesetCutter {
                 break;
 
             case '63':
-                height = this.size.tileSize * 8;
-                width = this.size.tileSize * 8;
+                height = this.size.tileSize * 6;
+                width = this.size.tileSize * 12;
                 break;
         }
 
