@@ -34,12 +34,16 @@
                     </div>
                 </div>
                 <div class="col-span-3">
-                    <img
-                        v-if="!tileset.processing"
-                        class="w-full mt-4"
-                        :src="tileset.result.canvas.toDataURL('image/png')"
-                        alt=""
-                    >
+                    <div v-if="!tileset.processing" class="text-center">
+                        <img
+                            class="w-full my-4"
+                            :src="tileset.result.canvas.toDataURL('image/png')"
+                            alt=""
+                        >
+                        <a :href="tileset.result.canvas.toDataURL('image/png')" :download="`${newFileName}_converted.png`" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Download Tileset
+                        </a>
+                    </div>
                     <h3 v-else class="text-xl leading-6 font-medium text-center">
                         Generating..
                     </h3>
@@ -59,6 +63,15 @@
                 hCount: 1,
                 vCount: 1,
             };
+        },
+        computed: {
+            newFileName() {
+                const name = this.tileset.file.name;
+                const parts = name.split('.');
+                parts.pop();
+
+                return parts.join('.')
+            }
         },
         watch: {
             hCount: function (value) {
