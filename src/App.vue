@@ -43,7 +43,7 @@
                     About / FAQ
                 </h2>
 
-                <div class="shadow overflow-hidden sm:rounded-md py-3 sm:py-6">
+                <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-1 gap-8">
                             <div class="col-span-1">
@@ -144,7 +144,7 @@
                                 <h3 class="text-xl leading-6 font-medium">
                                     How can I learn more about tilesets?
                                 </h3>
-                                <p class="mt-2 text-base text-gray-700 mb-6">
+                                <p class="mt-2 text-base text-gray-700">
                                     I personally found <a href="https://medium.com/@robotsweater/bots-guide-to-custom-art-in-rpgmaker-mv-understanding-tilesets-9178fe09e475" target="_blank" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">this post</a> to be very helpful.
                                 </p>
                             </div>
