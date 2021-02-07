@@ -129,7 +129,7 @@
                                 </h3>
                                 <p class="text-base text-gray-700 mb-6">
                                     <a href="https://sirmre.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">SirMrE</a>, I have made a lot of other crap, but this is the first RPG Maker/GMS/GD/etc tool.<br>
-                                    Also, I am average at best when it comes to web design, so please bear with the iffy UI :).
+                                    The tool is <a href="https://github.com/MrEliasen/tileset-converter" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">open source</a> (CC-BY-NC), not my finest work but that is what you get for a weekend project!
                                 </p>
                                 
                             </div>
