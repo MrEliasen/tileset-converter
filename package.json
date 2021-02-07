@@ -1,6 +1,12 @@
 {
   "name": "tileset-converter",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": {
+    "name" : "Mark 'SirMrE' Eliasen",
+    "email" : "hello@sirmre.com",
+    "url" : "https://sirmre.com/"
+},
+  "license" : "CC-BY-NC",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
