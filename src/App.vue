@@ -10,7 +10,7 @@
                     Tileset Converter.
                 </h2>
 
-                <p>Converts "A2" and "A4" tilesets to 16/47 tilesets. <a @click="goTo('#faq')" href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">Learn More</a></p>
+                <p>Converts "A2" and partically "A4" tilesets to 47 tilesets. <a @click="goTo('#faq')" href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">Learn More</a></p>
             </div>
 
             <div class="py-6 px-3 lg:px-8 sm:p-6">
@@ -51,7 +51,7 @@
                                     What is an "A1" tileset and what does it convert to?
                                 </h3>
 
-                                <p class="mt-2 text-base text-gray-700 mb-6">A1 or "animated" tilesets consists of 6 tiles in a 2x3 grid. Each frame is the same composition as A2's, A1's just have more frames. This tool will attempt to convert individual A1 frames into "16" autotile formats:</p>
+                                <p class="mt-2 text-base text-gray-700 mb-6">A1 or "animated" tilesets consists of 6 tiles in a 2x3 grid. Each frame is the same composition as A2's, A1's just have more frames. This tool will attempt to convert individual A1 frames into "47" autotile formats:</p>
 
                                 <div class="flex justify-center items-center">
                                     <img alt="a2 tileset" src="./assets/a2-example.png">
@@ -80,26 +80,10 @@
 
                             <div class="col-span-1">
                                 <h3 class="text-xl leading-6 font-medium">
-                                    What is an "A3" tileset and what does it convert to?
-                                </h3>
-
-                                <p class="mt-2 text-base text-gray-700 mb-6">A2 or "building" tilesets consists of 4 tiles in a 2x2 grid. This tool will attempt to convert A2's into a "16" autotile format:</p>
-
-                                <div class="flex justify-center items-center">
-                                    <img alt="a2 tileset" src="./assets/a3-example.png">
-                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                                    </svg>
-                                    <img alt="a2 autotile" src="./assets/a3-autotile.png">
-                                </div>
-                            </div>
-
-                            <div class="col-span-1">
-                                <h3 class="text-xl leading-6 font-medium">
                                     What is an "A4" tileset and what does it convert to?
                                 </h3>
 
-                                <p class="mt-2 text-base text-gray-700 mb-6">A4 or "wall" tilesets tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). This tool will attempt to convert A4's into a stacked "47" and "16" autotile like so:</p>
+                                <p class="mt-2 text-base text-gray-700 mb-6">A4 or "wall" tilesets tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). This tool will attempt to convert the A4 part into a stacked "47" tilset like below. If you know how to map the wall tileset (green) to a 16 tileset (if at all possible), please let me know!</p>
 
                                 <div class="flex justify-center items-center mt-8">
                                     <img alt="a4 tileset" src="./assets/a4-example.png">
@@ -110,10 +94,27 @@
                                 </div>
                             </div>
 
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    Why is "A3" tilesets not supported?
+                                </h3>
+
+                                <p class="mt-2 text-base text-gray-700 mb-6">A3 or "building" tilesets consists of 4 tiles in a 2x2 grid. A2's are not supported by this tool, because honestly I don't know if they can be mapped to a 16 autotile or 47. If you know how to map the these tilesets to a 16 tileset (if at all possible), please let me know!</p>
+
+                                <!-- <p class="mt-2 text-base text-gray-700 mb-6">A2 or "building" tilesets consists of 4 tiles in a 2x2 grid. This tool will attempt to convert A2's into a "16" autotile format:</p>
+
+                                <div class="flex justify-center items-center">
+                                    <img alt="a2 tileset" src="./assets/a3-example.png">
+                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                    </svg>
+                                    <img alt="a2 autotile" src="./assets/a3-autotile.png">
+                                </div> -->
+                            </div>
 
                             <div class="col-span-1">
                                 <h3 class="text-xl leading-6 font-medium">
-                                    What is an "A5" tileset and what does it convert to?
+                                    Why is "A5" tilesets not supported?
                                 </h3>
 
                                 <p class="mt-2 text-base text-gray-700 mb-6">A5 or "normal" tilesets are a mix of tiles with no (to my knowledge) autotile support as such. A5's are not supported by this tool.</p>
