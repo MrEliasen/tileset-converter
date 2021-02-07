@@ -151,6 +151,13 @@ class TilesetCutter {
             },
             b: {
                 tiles: {
+                    full: {
+                        x: tileSize,
+                        y: 0,
+                        size: tileSize,
+                    },
+                },
+                subtiles: {
                     tl: {
                         x: tileSize,
                         y: 0,
@@ -171,15 +178,10 @@ class TilesetCutter {
                         y: subTileSize,
                         size: subTileSize,
                     },
-                    center: {
-                        x: tileSize,
-                        y: 0,
-                        size: tileSize,
-                    },
                 }
             },
             c: {
-                'tiles': {
+                tiles: {
                     tl: {
                         x: 0,
                         y: tileSize,
@@ -206,7 +208,7 @@ class TilesetCutter {
                         size: tileSize,
                     },
                 },
-                'subtiles': [],
+                subtiles: [],
             },
         };
 
