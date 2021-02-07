@@ -23,7 +23,7 @@
             </svg>
             <div class="flex text-sm text-gray-600">
                 <label for="file-upload" class="relative cursor-pointer font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">
-                    <span>Upload a tileset(s)</span>
+                    <span>Select </span>
                     <input
                         id="file-upload"
                         name="file-upload"
@@ -32,7 +32,7 @@
                         @change="onFileSelect"
                     >
                 </label>
-                <p class="pl-1">or drag and drop</p>
+                <p class="pl-1">/ drop tileset(s) you want to convert</p>
             </div>
             <p class="text-xs text-gray-500">
                 Supports PNG & JPG

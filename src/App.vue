@@ -1,6 +1,6 @@
 <template>
-    <body class="font-sans antialiased">
-        <div id="app" class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased bg-gray-100">
+        <div id="app" class="min-h-screen">
             <div class="flex justify-center">
                 <img alt="Vue logo" src="./assets/logo.png">
             </div>
@@ -125,8 +125,10 @@
                                     Who made this?
                                 </h3>
                                 <p class="mt-2 text-base text-gray-700 mb-6">
-                                    <a href="https://sirmre.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">SirMrE</a>, I have made a lot of other crap, but this is the first RPG Maker/GMS/GD/etc tool.
+                                    <a href="https://sirmre.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">SirMrE</a>, I have made a lot of other crap, but this is the first RPG Maker/GMS/GD/etc tool.<br>
+                                    Also, I am average at best when it comes to web design, so please bear with the iffy UI :).
                                 </p>
+                                
                             </div>
 
                             <div class="col-span-1">
