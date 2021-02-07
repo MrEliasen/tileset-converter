@@ -157,7 +157,6 @@
 </template>
 
 <script>
-/* eslint-disable no-debugger */
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
 import TilesetCutter from './tileset/tileset_cutter.js'
