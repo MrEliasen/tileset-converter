@@ -142,7 +142,7 @@
                                     How can I learn more about tilesets?
                                 </h3>
                                 <p class="mt-2 text-base text-gray-700 mb-6">
-                                    I personally found <a href="https://medium.com/@robotsweater/bots-guide-to-custom-art-in-rpgmaker-mv-understanding-tilesets-9178fe09e475" target="_blank">this post</a> to be very helpful.
+                                    I personally found <a href="https://medium.com/@robotsweater/bots-guide-to-custom-art-in-rpgmaker-mv-understanding-tilesets-9178fe09e475" target="_blank" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">this post</a> to be very helpful.
                                 </p>
                             </div>
                         </div>
@@ -157,62 +157,7 @@
 /* eslint-disable no-debugger */
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
-
-class TilesetCutter {
-    constructor(file) {
-        this.file = file;
-        this.canvas = document.createElement("canvas");
-        this.ctx = this.canvas.getContext('2d');
-    }
-
-    load() {
-        return new Promise((resolve, reject) => {
-            try {
-                const reader = new FileReader();
-
-                reader.onload = (event) => {
-                    this.preview = event.target.result;
-                    resolve();
-                }
-
-                reader.readAsDataURL(this.file);
-            } catch (error) {
-                console.log(error);
-                reject(error);
-            }
-        });
-    }
-
-    async process() {
-        const img = new Image();
-
-        img.onload = () => {
-            this.size = {
-                imgWidth: img.width,
-                imgHeight: img.height,
-                tileSize: img.width / 2,
-            };
-
-            this.canvas.width = img.width;
-            this.canvas.height = img.height;
-            this.ctx.drawImage(img, 0, 0);
-        };
-
-        img.src = this.preview;
-
-        this.getTilesetType()
-    }
-
-    getTilesetType() {
-        const {imgHeight, tileSize} = this.size;
-
-        if (imgHeight < tileSize * 5) {
-            this.type = 'a2';
-        } else {
-            this.type = 'a4';
-        }
-    }
-}
+import TilesetCutter from './tileset/tileset_cutter.js'
 
 export default {
     name: 'App',
