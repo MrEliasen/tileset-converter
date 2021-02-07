@@ -220,17 +220,21 @@ class TilesetCutter {
 
         // generate section c
         let row = 0;
+        let col = 0;
 
         for (let i = 0; i < 16; i++) {
             if (i > 0 && i % 4 === 0) {
                 row++;
+                col = 0;
             }
 
             template.c.subtiles.push({
-                x: subTileSize * i,
+                x: subTileSize * col,
                 y: tileSize + (subTileSize * row),
                 size: subTileSize,
             });
+
+            col++;
         }
 
         return template;
