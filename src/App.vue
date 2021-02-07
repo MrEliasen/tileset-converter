@@ -5,7 +5,7 @@
                 <img alt="Vue logo" src="./assets/logo.png">
             </div>
 
-            <div class="mt-5  lg:text-center">
+            <div class="mt-5 lg:text-center">
                 <h2 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Tileset Converter
                 </h2>
@@ -39,8 +39,8 @@
                 </div>
             </div>
 
-            <div class="px-3 lg:px-8 sm:p-6 mt-20">
-                <div id="faq" class="lg:text-center">
+            <div id="faq" class="px-3 lg:px-8 sm:p-6 mt-20">
+                <div class="lg:text-center">
                     <h2 class="text-2xl mb-3 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
                         About / FAQ
                     </h2>
