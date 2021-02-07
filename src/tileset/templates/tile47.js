@@ -41,10 +41,7 @@ class Tile47 {
             targetY: 0,
             tiles: [
                 this.fullTile,
-                {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                }
+                b.subtiles.tl
             ]
         });
 
@@ -54,8 +51,7 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 }
             ]
@@ -66,13 +62,9 @@ class Tile47 {
             targetY: 0,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 }
             ]
@@ -84,8 +76,7 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -97,13 +88,9 @@ class Tile47 {
             targetY: 0,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -116,13 +103,11 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -134,18 +119,13 @@ class Tile47 {
             targetY: 0,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -158,8 +138,7 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
             ]
@@ -170,13 +149,9 @@ class Tile47 {
             targetY: 0,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
             ]
@@ -188,13 +163,11 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
             ]
@@ -210,18 +183,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 }
             ]
@@ -233,13 +201,11 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -251,18 +217,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -275,18 +236,15 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -298,23 +256,17 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -326,13 +278,9 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[4],
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[4].y,
-                },
-                {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
+                    ...c.subtiles[8],
                     offsetY: subTileSize,
                 },
             ]
@@ -343,18 +291,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[4],
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[4].y,
-                },
-                {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
+                    ...c.subtiles[8],
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 }
             ]
@@ -365,18 +308,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[4],
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[4].y,
-                },
-                {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
+                    ...c.subtiles[8],
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -388,23 +326,17 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[4],
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[4].y,
-                },
-                {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
+                    ...c.subtiles[8],
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -416,13 +348,9 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[1],
                 {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
-                },
-                {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
+                    ...c.subtiles[2],
                     offsetX: subTileSize,
                 },
             ]
@@ -433,18 +361,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[1],
                 {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
-                },
-                {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
+                    ...c.subtiles[2],
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -456,18 +379,13 @@ class Tile47 {
             targetY: tileSize,
             tiles: [
                 this.fullTile,
+                c.subtiles[1],
                 {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
-                },
-                {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
+                    ...c.subtiles[2],
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 }
             ]
@@ -483,23 +401,17 @@ class Tile47 {
             targetY: tileSize * 2,
             tiles: [
                 this.fullTile,
+                c.subtiles[1],
                 {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
-                },
-                {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
+                    ...c.subtiles[2],
                     offsetX: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -512,13 +424,11 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
+                    ...c.subtiles[7],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
+                    ...c.subtiles[11],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -531,19 +441,16 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
+                    ...c.subtiles[7],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
+                    ...c.subtiles[11],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 },
             ]
@@ -555,20 +462,15 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
+                    ...c.subtiles[7],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
+                    ...c.subtiles[11],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
-                {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
+                b.subtiles.tl,
             ]
         });
 
@@ -576,28 +478,7 @@ class Tile47 {
             targetX: tileSize * 4,
             targetY: tileSize * 2,
             tiles: [
-                this.fullTile,
-                {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
-                    offsetX: subTileSize,
-                },
-                {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
-                    offsetX: subTileSize,
-                    offsetY: subTileSize,
-                },
-                {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                    offsetY: subTileSize,
-                },
-                {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
-                    offsetY: subTileSize,
-                },
+                b.tiles.full,
             ]
         });
 
@@ -607,13 +488,11 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
+                    ...c.subtiles[14],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -626,20 +505,15 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
+                    ...c.subtiles[14],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
-                {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                }
+                b.subtiles.tl
             ]
         });
 
@@ -649,19 +523,16 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
+                    ...c.subtiles[14],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 }
             ]
@@ -673,23 +544,17 @@ class Tile47 {
             tiles: [
                 this.fullTile,
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
+                    ...c.subtiles[14],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
+                b.subtiles.tl,
                 {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                },
-                {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
                 }
             ]
@@ -700,23 +565,17 @@ class Tile47 {
             targetY: tileSize * 2,
             tiles: [
                 this.fullTile,
+                c.subtiles[4],
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[4].y,
-                },
-                {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
+                    ...c.subtiles[8],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
+                    ...c.subtiles[7],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
+                    ...c.subtiles[11],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -728,23 +587,17 @@ class Tile47 {
             targetY: tileSize * 2,
             tiles: [
                 this.fullTile,
+                c.subtiles[1],
                 {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
-                },
-                {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
+                    ...c.subtiles[2],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
+                    ...c.subtiles[14],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -770,8 +623,7 @@ class Tile47 {
             tiles: [
                 c.tiles.tl,
                 {
-                    x: b.tiles.br.x,
-                    y: b.tiles.br.y,
+                    ...b.subtiles.br,
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 }
@@ -792,8 +644,7 @@ class Tile47 {
             tiles: [
                 c.tiles.tr,
                 {
-                    x: b.tiles.bl.x,
-                    y: b.tiles.bl.y,
+                    ...b.subtiles.bl,
                     offsetY: subTileSize,
                 }
             ]
@@ -812,10 +663,7 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 c.tiles.br,
-                {
-                    x: b.tiles.tl.x,
-                    y: b.tiles.tl.y,
-                }
+                b.subtiles.tl
             ]
         });
 
@@ -833,10 +681,8 @@ class Tile47 {
             tiles: [
                 c.tiles.bl,
                 {
-                    x: b.tiles.tr.x,
-                    y: b.tiles.tr.y,
+                    ...b.subtiles.tr,
                     offsetX: subTileSize,
-                    offsetY: subTileSize,
                 }
             ]
         });
@@ -846,23 +692,17 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 this.fullTile,
+                c.subtiles[0],
                 {
-                    x: c.subtiles[0].x,
-                    y: c.subtiles[0].y,
-                },
-                {
-                    x: c.subtiles[3].x,
-                    y: c.subtiles[3].y,
+                    ...c.subtiles[3],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[4].x,
-                    y: c.subtiles[5].y,
+                    ...c.subtiles[4],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[7].x,
-                    y: c.subtiles[7].y,
+                    ...c.subtiles[7],
                     offsetY: subTileSize,
                     offsetX: subTileSize,
                 },
@@ -874,23 +714,17 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 this.fullTile,
+                c.subtiles[0],
                 {
-                    x: c.subtiles[0].x,
-                    y: c.subtiles[0].y,
-                },
-                {
-                    x: c.subtiles[1].x,
-                    y: c.subtiles[1].y,
+                    ...c.subtiles[1],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[12].x,
-                    y: c.subtiles[12].y,
+                    ...c.subtiles[12],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[13].x,
-                    y: c.subtiles[13].y,
+                    ...c.subtiles[13],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -902,24 +736,18 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 this.fullTile,
+                c.subtiles[8],
                 {
-                    x: c.subtiles[8].x,
-                    y: c.subtiles[8].y,
-                },
-                {
-                    x: c.subtiles[12].x,
-                    y: c.subtiles[12].y,
+                    ...c.subtiles[12],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[15].x,
-                    y: c.subtiles[15].y,
+                    ...c.subtiles[15],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[11].x,
-                    y: c.subtiles[11].y,
+                    ...c.subtiles[11],
                     offsetX: subTileSize,
                 },
             ]
@@ -930,23 +758,17 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 this.fullTile,
+                c.subtiles[2],
                 {
-                    x: c.subtiles[2].x,
-                    y: c.subtiles[2].y,
-                },
-                {
-                    x: c.subtiles[14].x,
-                    y: c.subtiles[14].y,
-                    offsetY: subTileSize,
-                },
-                {
-                    x: c.subtiles[3].x,
-                    y: c.subtiles[3].y,
+                    ...c.subtiles[3],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[15].x,
-                    y: c.subtiles[15].y,
+                    ...c.subtiles[14],
+                    offsetY: subTileSize,
+                },
+                {
+                    ...c.subtiles[15],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
@@ -958,23 +780,17 @@ class Tile47 {
             targetY: tileSize * 3,
             tiles: [
                 this.fullTile,
+                c.subtiles[0],
                 {
-                    x: c.subtiles[0].x,
-                    y: c.subtiles[0].y,
-                },
-                {
-                    x: c.subtiles[3].x,
-                    y: c.subtiles[3].y,
+                    ...c.subtiles[3],
                     offsetX: subTileSize,
                 },
                 {
-                    x: c.subtiles[12].x,
-                    y: c.subtiles[12].y,
+                    ...c.subtiles[12],
                     offsetY: subTileSize,
                 },
                 {
-                    x: c.subtiles[15].x,
-                    y: c.subtiles[15].y,
+                    ...c.subtiles[15],
                     offsetX: subTileSize,
                     offsetY: subTileSize,
                 },
