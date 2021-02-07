@@ -27,20 +27,16 @@
             </div>
 
             <div v-if="files.length > 0" class="pb-6 px-3 lg:px-8 sm:pb-6 sm:px-6">
-                <div class="shadow overflow-hidden sm:rounded-md">
-                    <div class="px-4 py-5 bg-white sm:p-6">
-                        <previews
-                            v-for="(file, index) in files"
-                            :key="index"
-                            :file="file"
-                            :onDelete="removeImage"
-                        />
-                    </div>
-                </div>
+                <previews
+                    v-for="(file, index) in files"
+                    :key="index"
+                    :file="file"
+                    :onDelete="removeImage"
+                />
             </div>
 
-            <div id="faq" class="px-3 lg:px-8 sm:p-6 mt-20">
-                <div class="lg:text-center">
+            <div class="px-3 lg:px-8 sm:p-6 mt-20">
+                <div id="faq" class="lg:text-center">
                     <h2 class="text-2xl mb-3 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
                         About / FAQ
                     </h2>
@@ -173,7 +169,6 @@ export default {
     data() {
         return {
             processing: false,
-            uploads: [],
             files: [],
         };
     },
@@ -195,14 +190,14 @@ export default {
             try {
                 const newTilset = new TilesetCutter(file);
                 await newTilset.load();
-                this.uploads.push(newTilset);
+                this.files.push(newTilset);
             } catch (error) {
                 console.log(error);
             }
 
         },
         removeImage(index) {
-            this.uploads.splice(index, 1);
+            this.files.splice(index, 1);
         },
     }
 }
