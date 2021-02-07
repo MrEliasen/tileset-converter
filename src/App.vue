@@ -10,7 +10,7 @@
                     Tileset Converter.
                 </h2>
 
-                <p>Converts "A2" and "A4" tilesets to 16/47 tilesets. <a @click="goTo('#read-more')" href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">Learn More</a></p>
+                <p>Converts "A2" and "A4" tilesets to 16/47 tilesets. <a @click="goTo('#faq')" href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">Learn More</a></p>
             </div>
 
             <div class="py-6 px-3 lg:px-8 sm:p-6">
@@ -23,59 +23,73 @@
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-3">
-
                             <div class="col-span-6">
-                                <div class="grid grid-cols-6 gap-3">
-                                    <div
-                                        v-for="(image, index) in files"
-                                        :key="index"
-                                        class="flex relative rounded overflow-hidden flex items-center border-2 bg-gray-300 border-solid rounded-md border-gray-300"
-                                    >
-                                        <img
-                                            class="w-full h-auto"
-                                            :src="image.preview"
-                                            alt=""
-                                        >
-                                        <div
-                                            class="absolute cursor-pointer top-0 right-0 p-2 text-red-500"
-                                            @click="removeImage(index)"
-                                        >
-                                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
+                                <previews :files="files" :onDelete="removeImage" />
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            <div class="py-6 px-3 lg:px-8 sm:p-6">
-                <h2 id="read-more" class="font-semibold text-xl mb-3 text-gray-800 leading-tight">
-                    About
+            <div class="px-3 lg:px-8 sm:p-6">
+                <h2 id="faq" class="font-semibold text-xl mb-3 text-gray-800 leading-tight">
+                    About / FAQ
                 </h2>
 
-                <p>Will attempt to convert tilesets to their 16 and/or 47 tilesets like below:</p>
-            </div>
+                <div class="shadow overflow-hidden sm:rounded-md py-3 sm:py-6">
+                    <div class="px-4 py-5 bg-white sm:p-6">
+                        <div class="grid grid-cols-1 gap-8">
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    What is an "A2" tileset and what does it convert to?
+                                </h3>
 
-            <div class="py-6 px-3 lg:px-8 sm:p-6">
-                <div class="flex justify-center items-center">
-                    <img alt="a2 tileset" src="./assets/a2-example.png">
-                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                    </svg>
-                    <img alt="a2 autotile" src="./assets/a2-autotile.png">
-                </div>
-                <div class="flex justify-center items-center mt-8">
-                    <img alt="a4 tileset" src="./assets/a4-example.png">
-                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                    </svg>
-                    <img alt="a4 autotile" src="./assets/a4-autotile.png">
+                                <p class="mt-2 text-base text-gray-700 mb-6">A2 tilesets consists of a 5 tiles, with the top-left being the icon. It converts to a 47 tileset like so:</p>
+
+                                <div class="flex justify-center items-center">
+                                    <img alt="a2 tileset" src="./assets/a2-example.png">
+                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                    </svg>
+                                    <img alt="a2 autotile" src="./assets/a2-autotile.png">
+                                </div>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    What is an "A4" tileset and what does it convert to?
+                                </h3>
+
+                                <p class="mt-2 text-base text-gray-700 mb-6">A4 tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). It converts to a 47 and 16 tileset like so:</p>
+
+                                <div class="flex justify-center items-center mt-8">
+                                    <img alt="a4 tileset" src="./assets/a4-example.png">
+                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                    </svg>
+                                    <img alt="a4 autotile" src="./assets/a4-autotile.png">
+                                </div>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    Who made this?
+                                </h3>
+                                <p class="mt-2 text-base text-gray-700 mb-6">
+                                    <a href="https://sirmre.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">SirMrE</a>, I have made a lot of other crap, but this is the first RPG Maker/GMS/GD/etc tool.
+                                </p>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    Can I buy you a coffee?
+                                </h3>
+                                <p class="mt-2 text-base text-gray-700 mb-6">
+                                    I appreciate the gesture, but don't worry. Take care of yourself instead, specially during these times.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,11 +98,13 @@
 
 <script>
 import dropzone from './components/dropzone.vue'
+import previews from './components/previews.vue'
 
 export default {
     name: 'App',
     components: {
-        dropzone
+        dropzone,
+        previews,
     },
     data() {
         return {
