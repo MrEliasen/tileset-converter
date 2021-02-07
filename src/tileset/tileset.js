@@ -24,7 +24,7 @@ class Tileset {
     async process() {
         this.getTilesetType()
         this.setupTargetCanvas()
-        this.convertTileset()
+        this.generate47();
     }
 
     getTilesetType() {
@@ -34,6 +34,7 @@ class Tileset {
             this.type = '47';
             return;
         }
+
         this.type = '63';
     }
 
@@ -55,15 +56,6 @@ class Tileset {
 
         this.result.canvas.height = height;
         this.result.canvas.width = width;
-    }
-
-    convertTileset() {
-        switch (this.type) {
-            case '47':
-            case '63':
-                this.generate47();
-                break;
-        }
     }
 
     generate47() {
@@ -90,6 +82,23 @@ class Tileset {
                 );
             }
         });
+
+        // if its a 63 tileset, append the bottom 4 tiles to the result
+        if (this.type == '63') {
+            const wallSize = this.size.tileSize * 2;
+
+            this.result.ctx.drawImage(
+                this.source.image,
+                this.sourceOffsetX, // crop x start
+                this.sourceOffsetY + 3 * this.size.tileSize, // crop y start
+                wallSize, // crop size width
+                wallSize, // crop size height
+                0, // x position to place it
+                4 * this.size.tileSize, // x position to place it
+                wallSize, // crop size width
+                wallSize // crop size height
+            );
+        }
     }
 
     get47ExtractionTemplate() {
