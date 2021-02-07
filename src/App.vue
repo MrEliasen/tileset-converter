@@ -168,7 +168,7 @@
 <script>
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
-import Tileset from './tileset/tileset.js'
+import Upload from './tileset/upload.js'
 
 export default {
     name: 'App',
@@ -183,9 +183,8 @@ export default {
         };
     },
     methods: {
-        // tileset image loading and cutting
         async generateTilesets() {
-            await Promise.all(this.files.map((tileset) => tileset.process()));
+            await Promise.all(this.files.map((upload) => upload.generateTileset()));
         },
         // UI and component related
         goTo(targetId) {
@@ -198,9 +197,9 @@ export default {
         },
         async addImage(file) {
             try {
-                const newTilset = new Tileset(file);
-                await newTilset.load();
-                this.files.push(newTilset);
+                const newUpload = new Upload(file);
+                await newUpload.load();
+                this.files.push(newUpload);
             } catch (error) {
                 console.log(error);
             }

@@ -2,20 +2,15 @@
 import Tile47 from './templates/tile47.js'
 
 class Tileset {
-    constructor(file) {
-        this.file = file;
-        this.processing = false;
-        this.horizontalSheets = 1;
-        this.verticalSheets = 1;
+    constructor(img, source, tilesetSize, offsetX, offsetY, position) {
+        this.image = img;
+        this.size = tilesetSize;
+        this.sourceOffsetX = offsetX;
+        this.sourceOffsetY = offsetY;
+        this.position = position;
 
-        // holds the source file image
-        const sourceCanvas = document.createElement("canvas");
-        const sourceCtx = sourceCanvas.getContext('2d');
-        this.source = {
-            canvas: sourceCanvas,
-            ctx: sourceCtx,
-            image: null,
-        }
+        this.source = source;
+        this.source.image = img;
 
         // holds the converted tileset
         const resultCanvas = document.createElement("canvas");
@@ -26,49 +21,10 @@ class Tileset {
         };
     }
 
-    load() {
-        return new Promise((resolve, reject) => {
-            try {
-                const reader = new FileReader();
-
-                reader.onload = (event) => {
-                    this.preview = event.target.result;
-                    resolve();
-                }
-
-                reader.readAsDataURL(this.file);
-            } catch (error) {
-                console.log(error);
-                reject(error);
-            }
-        });
-    }
-    process() {
-        return new Promise((resolve, reject) => {
-            this.processing = true;
-            const img = new Image();
-
-            img.onload = () => {
-                this.size = {
-                    imgWidth: img.width,
-                    imgHeight: img.height,
-                    tileSize: img.width / 2,
-                };
-
-                this.source.canvas.width = img.width;
-                this.source.canvas.height = img.height;
-                this.source.ctx.drawImage(img, 0, 0);
-
-                this.getTilesetType()
-                this.setupTargetCanvas()
-                this.convertTileset()
-                this.processing = false;
-                resolve();
-            };
-
-            img.src = this.preview;
-            this.source.image = img;
-        });
+    async process() {
+        this.getTilesetType()
+        this.setupTargetCanvas()
+        this.convertTileset()
     }
 
     getTilesetType() {
@@ -78,12 +34,6 @@ class Tileset {
             this.type = '47';
             return;
         }
-
-        if (imgHeight === tileSize * 2) {
-            this.type = '16';
-            return;
-        } 
-
         this.type = '63';
     }
 
@@ -95,11 +45,6 @@ class Tileset {
             case '47':
                 height = this.size.tileSize * 4;
                 width = this.size.tileSize * 12;
-                break;
-
-            case '16':
-                height = this.size.tileSize * 2;
-                width = this.size.tileSize * 8;
                 break;
 
             case '63':
@@ -118,9 +63,6 @@ class Tileset {
             case '63':
                 this.generate47();
                 break;
-
-            case '16':
-                break;
         }
     }
 
@@ -137,8 +79,8 @@ class Tileset {
 
                 this.result.ctx.drawImage(
                     this.source.image,
-                    crop.x, // crop x start
-                    crop.y, // crop y start
+                    this.sourceOffsetX + crop.x, // crop x start
+                    this.sourceOffsetY + crop.y, // crop y start
                     crop.size || subTileSize, // crop size width
                     crop.size || subTileSize, // crop size height
                     tile.targetX + (crop.offsetX || 0), // x position to place it
