@@ -17,15 +17,22 @@
                 <dropzone
                     :onFile="addImage"
                 />
+
+                <div class="pt-6 text-right">
+                    <button @click="generateTilesets" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Process Images
+                    </button>
+                </div>
             </div>
 
-            <div class="py-6 px-3 lg:px-8 sm:p-6">
+            <div class="pb-6 px-3 lg:px-8 sm:pb-6 sm:px-6">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-3">
                             <div class="col-span-6">
                                 <previews :files="files" :onDelete="removeImage" />
                             </div>
+                            <div class="col-span-6" id="canvas"></div>
                         </div>
                     </div>
                 </div>
@@ -97,8 +104,49 @@
 </template>
 
 <script>
+/* eslint-disable no-debugger */
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
+
+class TilesetCutter {
+    constructor(file) {
+        this.file = file;
+        this.canvas = document.createElement("canvas");
+        this.ctx = this.canvas.getContext('2d');
+    }
+
+    load() {
+        return new Promise((resolve, reject) => {
+            try {
+                const reader = new FileReader();
+
+                reader.onload = (event) => {
+                    this.preview = event.target.result;
+                    resolve();
+                }
+
+                reader.readAsDataURL(this.file);
+            } catch (error) {
+                console.log(error);
+                reject(error);
+            }
+        });
+    }
+
+    async process() {
+        const img = new Image();
+
+        img.onload = () => {
+            this.canvas.width = img.width;
+            this.canvas.height = img.height;
+            this.ctx.drawImage(img, 0, 0);
+        };
+
+        img.src = this.preview;
+
+        document.getElementById("canvas").appendChild(this.canvas);
+    }
+}
 
 export default {
     name: 'App',
@@ -112,6 +160,11 @@ export default {
         };
     },
     methods: {
+        // tileset image loading and cutting
+        async generateTilesets() {
+            await Promise.all(this.files.map((tileset) => tileset.process()));
+        },
+        // UI and component related
         goTo(targetId) {
             const el = document.querySelector(targetId);
 
@@ -121,32 +174,17 @@ export default {
             });
         },
         async addImage(file) {
-            const newFile = {
-                preview: null,
-                file: file,
-            };
+            try {
+                const newTilset = new TilesetCutter(file);
+                await newTilset.load();
+                this.files.push(newTilset);
+            } catch (error) {
+                console.log(error);
+            }
 
-            const imagePreview = await this.getImagePreview(file);
-            newFile.preview = imagePreview;
-            this.files.push(newFile);
         },
         removeImage(index) {
             this.files.splice(index, 1);
-        },
-        getImagePreview(file) {
-            return new Promise((resolve, reject) => {
-                try {
-                    const reader = new FileReader();
-
-                    reader.onload = function(event) {
-                        resolve(event.target.result);
-                    }
-
-                    reader.readAsDataURL(file);
-                } catch (error) {
-                    reject(error);
-                }
-            });
         },
     }
 }
