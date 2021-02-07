@@ -40,7 +40,7 @@
                             :src="tileset.result.canvas.toDataURL('image/png')"
                             alt=""
                         >
-                        <a :href="tileset.result.canvas.toDataURL('image/png')" :download="`${newFileName}_converted.png`" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        <a v-if="tileset.downloadable" :href="tileset.result.canvas.toDataURL('image/png')" :download="`${newFileName}_converted.png`" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                             Download Tileset
                         </a>
                     </div>

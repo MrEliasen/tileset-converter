@@ -5,6 +5,7 @@ class Upload {
     constructor(file) {
         this.file = file;
         this.processing = false;
+        this.downloadable = false;
         this.horizontalSheets = 1;
         this.verticalSheets = 1;
 
@@ -54,6 +55,7 @@ class Upload {
     generateTileset() {
         return new Promise((resolve, reject) => {
             this.processing = true;
+            this.downloadable = false;
             const img = new Image();
 
             img.onload = async () => {
@@ -109,6 +111,7 @@ class Upload {
                 });
 
                 this.processing = false;
+                this.downloadable = true;
                 resolve();
             };
 
