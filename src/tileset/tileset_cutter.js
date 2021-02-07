@@ -4,6 +4,7 @@ import Tile47 from './templates/tile47.js'
 class TilesetCutter {
     constructor(file) {
         this.file = file;
+        this.processing = false;
 
         // holds the source file image
         const sourceCanvas = document.createElement("canvas");
@@ -20,7 +21,7 @@ class TilesetCutter {
         this.result = {
             canvas: resultCanvas,
             ctx: resultCtx,
-        }
+        };
     }
 
     load() {
@@ -40,28 +41,32 @@ class TilesetCutter {
             }
         });
     }
+    process() {
+        return new Promise((resolve, reject) => {
+            this.processing = true;
+            const img = new Image();
 
-    async process() {
-        const img = new Image();
+            img.onload = () => {
+                this.size = {
+                    imgWidth: img.width,
+                    imgHeight: img.height,
+                    tileSize: img.width / 2,
+                };
 
-        img.onload = () => {
-            this.size = {
-                imgWidth: img.width,
-                imgHeight: img.height,
-                tileSize: img.width / 2,
+                this.source.canvas.width = img.width;
+                this.source.canvas.height = img.height;
+                this.source.ctx.drawImage(img, 0, 0);
+
+                this.getTilesetType()
+                this.setupTargetCanvas()
+                this.convertTileset()
+                this.processing = false;
+                resolve();
             };
 
-            this.source.canvas.width = img.width;
-            this.source.canvas.height = img.height;
-            this.source.ctx.drawImage(img, 0, 0);
-
-            this.getTilesetType()
-            this.setupTargetCanvas()
-            this.convertTileset()
-        };
-
-        img.src = this.preview;
-        this.source.image = img;
+            img.src = this.preview;
+            this.source.image = img;
+        });
     }
 
     getTilesetType() {
@@ -141,8 +146,6 @@ class TilesetCutter {
                 );
             }
         });
-
-        document.getElementById('canvas').appendChild(this.result.canvas);
     }
 
     get47ExtractionTemplate() {

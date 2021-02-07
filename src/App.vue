@@ -18,27 +18,27 @@
                     :onFile="addImage"
                 />
 
-                <div class="pt-6 text-right">
+                <div v-if="files.length > 0" class="pt-6 text-right">
                     <button @click="generateTilesets" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Process Images
                     </button>
                 </div>
             </div>
 
-            <div class="pb-6 px-3 lg:px-8 sm:pb-6 sm:px-6">
+            <div v-if="files.length > 0" class="pb-6 px-3 lg:px-8 sm:pb-6 sm:px-6">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <div class="grid grid-cols-6 gap-3">
-                            <div class="col-span-6">
-                                <previews :files="files" :onDelete="removeImage" />
-                            </div>
-                            <div class="col-span-6" id="canvas"></div>
-                        </div>
+                        <previews
+                            v-for="(file, index) in files"
+                            :key="index"
+                            :file="file"
+                            :onDelete="removeImage"
+                        />
                     </div>
                 </div>
             </div>
 
-            <div class="px-3 lg:px-8 sm:p-6">
+            <div class="px-3 lg:px-8 sm:p-6 mt-20">
                 <h2 id="faq" class="font-semibold text-xl mb-3 text-gray-800 leading-tight">
                     About / FAQ
                 </h2>
@@ -169,6 +169,7 @@ export default {
     },
     data() {
         return {
+            processing: false,
             files: [],
         };
     },
