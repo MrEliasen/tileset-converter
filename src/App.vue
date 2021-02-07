@@ -48,10 +48,10 @@
                         <div class="grid grid-cols-1 gap-8">
                             <div class="col-span-1">
                                 <h3 class="text-xl leading-6 font-medium">
-                                    What is an "A2" tileset and what does it convert to?
+                                    What is an "A1" tileset and what does it convert to?
                                 </h3>
 
-                                <p class="mt-2 text-base text-gray-700 mb-6">A2 tilesets consists of a 5 tiles, with the top-left being the icon. It converts to a 47 tileset like so:</p>
+                                <p class="mt-2 text-base text-gray-700 mb-6">A1 or "animated" tilesets consists of 6 tiles in a 2x3 grid. Each frame is the same composition as A2's, A1's just have more frames. This tool will attempt to convert individual A1 frames into "16" autotile formats:</p>
 
                                 <div class="flex justify-center items-center">
                                     <img alt="a2 tileset" src="./assets/a2-example.png">
@@ -64,10 +64,42 @@
 
                             <div class="col-span-1">
                                 <h3 class="text-xl leading-6 font-medium">
+                                    What is an "A2" tileset and what does it convert to?
+                                </h3>
+
+                                <p class="mt-2 text-base text-gray-700 mb-6">A2 or "ground" tilesets consists of 6 tiles in a 2x3 grid. This tool will attempt to convert A2's into a "47" autotile format:</p>
+
+                                <div class="flex justify-center items-center">
+                                    <img alt="a2 tileset" src="./assets/a2-example.png">
+                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                    </svg>
+                                    <img alt="a2 autotile" src="./assets/a2-autotile.png">
+                                </div>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    What is an "A3" tileset and what does it convert to?
+                                </h3>
+
+                                <p class="mt-2 text-base text-gray-700 mb-6">A2 or "building" tilesets consists of 4 tiles in a 2x2 grid. This tool will attempt to convert A2's into a "16" autotile format:</p>
+
+                                <div class="flex justify-center items-center">
+                                    <img alt="a2 tileset" src="./assets/a3-example.png">
+                                    <svg class="h-12 w-12 mx-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                    </svg>
+                                    <img alt="a2 autotile" src="./assets/a3-autotile.png">
+                                </div>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
                                     What is an "A4" tileset and what does it convert to?
                                 </h3>
 
-                                <p class="mt-2 text-base text-gray-700 mb-6">A4 tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). It converts to a 47 and 16 tileset like so:</p>
+                                <p class="mt-2 text-base text-gray-700 mb-6">A4 or "wall" tilesets tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). This tool will attempt to convert A4's into a stacked "47" and "16" autotile like so:</p>
 
                                 <div class="flex justify-center items-center mt-8">
                                     <img alt="a4 tileset" src="./assets/a4-example.png">
@@ -76,6 +108,15 @@
                                     </svg>
                                     <img alt="a4 autotile" src="./assets/a4-autotile.png">
                                 </div>
+                            </div>
+
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    What is an "A5" tileset and what does it convert to?
+                                </h3>
+
+                                <p class="mt-2 text-base text-gray-700 mb-6">A5 or "normal" tilesets are a mix of tiles with no (to my knowledge) autotile support as such. A5's are not supported by this tool.</p>
                             </div>
 
                             <div class="col-span-1">
@@ -93,6 +134,15 @@
                                 </h3>
                                 <p class="mt-2 text-base text-gray-700 mb-6">
                                     I appreciate the gesture, but don't worry. Take care of yourself instead, specially during these times.
+                                </p>
+                            </div>
+
+                            <div class="col-span-1">
+                                <h3 class="text-xl leading-6 font-medium">
+                                    How can I learn more about tilesets?
+                                </h3>
+                                <p class="mt-2 text-base text-gray-700 mb-6">
+                                    I personally found <a href="https://medium.com/@robotsweater/bots-guide-to-custom-art-in-rpgmaker-mv-understanding-tilesets-9178fe09e475" target="_blank">this post</a> to be very helpful.
                                 </p>
                             </div>
                         </div>
@@ -137,6 +187,12 @@ class TilesetCutter {
         const img = new Image();
 
         img.onload = () => {
+            this.size = {
+                imgWidth: img.width,
+                imgHeight: img.height,
+                tileSize: img.width / 2,
+            };
+
             this.canvas.width = img.width;
             this.canvas.height = img.height;
             this.ctx.drawImage(img, 0, 0);
@@ -144,7 +200,17 @@ class TilesetCutter {
 
         img.src = this.preview;
 
-        document.getElementById("canvas").appendChild(this.canvas);
+        this.getTilesetType()
+    }
+
+    getTilesetType() {
+        const {imgHeight, tileSize} = this.size;
+
+        if (imgHeight < tileSize * 5) {
+            this.type = 'a2';
+        } else {
+            this.type = 'a4';
+        }
     }
 }
 
