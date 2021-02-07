@@ -118,25 +118,31 @@ class TilesetCutter {
     }
 
     generate47() {
-        const {tileSize} = this.size;
+        const {tileSize, subTileSize} = this.size;
         const pieces = this.get47ExtractionTemplate();
 
         const template = new Tile47(pieces, this.size);
         const drawTemplate = template.generateTemplate();
 
-        // drawTemplate.forEach((tile) => {
-        //     this.result.ctx.drawImage(
-        //         this.source.image,
-        //         0, // crop x start
-        //         0, // crop y start
-        //         tileSize, // crop size width
-        //         tileSize, // crop size height
-        //         0, // x position to place it
-        //         0, // x position to place it
-        //         tileSize, // crop size width
-        //         tileSize // crop size height
-        //     );
-        // });
+        drawTemplate.forEach((tile) => {
+            for (let i = 0; i < tile.tiles.length; i++) {
+                const crop = tile.tiles[i];
+
+                this.result.ctx.drawImage(
+                    this.source.image,
+                    crop.x, // crop x start
+                    crop.y, // crop y start
+                    crop.size || subTileSize, // crop size width
+                    crop.size || subTileSize, // crop size height
+                    tile.targetX + (crop.offsetX || 0), // x position to place it
+                    tile.targetY + (crop.offsetY || 0), // x position to place it
+                    crop.size || subTileSize, // crop size width
+                    crop.size || subTileSize // crop size height
+                );
+            }
+        });
+
+        document.getElementById('canvas').appendChild(this.result.canvas);
     }
 
     get47ExtractionTemplate() {
