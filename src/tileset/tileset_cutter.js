@@ -54,13 +54,14 @@ class TilesetCutter {
             this.source.canvas.width = img.width;
             this.source.canvas.height = img.height;
             this.source.ctx.drawImage(img, 0, 0);
+
+            this.getTilesetType()
+            this.setupTargetCanvas()
+            this.convertTileset()
         };
 
         img.src = this.preview;
-        this.source.image =img;
-
-        this.getTilesetType()
-        this.setupTargetCanvas()
+        this.source.image = img;
     }
 
     getTilesetType() {
@@ -100,8 +101,20 @@ class TilesetCutter {
                 break;
         }
 
-        this.target.canvas.height = height;
-        this.target.canvas.width = width;
+        this.result.canvas.height = height;
+        this.result.canvas.width = width;
+    }
+
+    convertTileset() {
+        switch (this.type) {
+            case '47':
+            case '63':
+                this.generate47();
+                break;
+
+            case '16':
+                break;
+        }
     }
 
     generate47() {
@@ -109,21 +122,21 @@ class TilesetCutter {
         const pieces = this.get47ExtractionTemplate();
 
         const template = new Tile47(pieces, this.size);
+        const drawTemplate = template.generateTemplate();
 
-        console.log(template.generateTemplate());
-
-        // row 1
-        this.result.ctx.drawImage(
-            this.source.image,
-            0, // crop x start
-            0, // crop y start
-            tileSize, // crop size width
-            tileSize, // crop size height
-            0, // x position to place it
-            0, // x position to place it
-            tileSize, // crop size width
-            tileSize // crop size height
-        );
+        // drawTemplate.forEach((tile) => {
+        //     this.result.ctx.drawImage(
+        //         this.source.image,
+        //         0, // crop x start
+        //         0, // crop y start
+        //         tileSize, // crop size width
+        //         tileSize, // crop size height
+        //         0, // x position to place it
+        //         0, // x position to place it
+        //         tileSize, // crop size width
+        //         tileSize // crop size height
+        //     );
+        // });
     }
 
     get47ExtractionTemplate() {
@@ -211,6 +224,8 @@ class TilesetCutter {
                 size: subTileSize,
             });
         }
+
+        return template;
     }
 }
 
