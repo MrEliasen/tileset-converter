@@ -60,9 +60,8 @@ class Tileset {
 
     generate47() {
         const {tileSize, subTileSize} = this.size;
-        const pieces = this.get47ExtractionTemplate();
 
-        const template = new Tile47(pieces, this.size);
+        const template = new Tile47(this.size);
         const drawTemplate = template.generateTemplate();
 
         drawTemplate.forEach((tile) => {
@@ -99,101 +98,6 @@ class Tileset {
                 wallSize // crop size height
             );
         }
-    }
-
-    get47ExtractionTemplate() {
-        const {tileSize} = this.size;
-        const subTileSize = tileSize / 2;
-
-        const template = {
-            a: {
-                x: 0,
-                y: 0,
-                size: tileSize,
-            },
-            b: {
-                tiles: {
-                    full: {
-                        x: tileSize,
-                        y: 0,
-                        size: tileSize,
-                    },
-                },
-                subtiles: {
-                    tl: {
-                        x: tileSize,
-                        y: 0,
-                        size: subTileSize,
-                    },
-                    tr: {
-                        x: tileSize + subTileSize,
-                        y: 0,
-                        size: subTileSize,
-                    },
-                    bl: {
-                        x: tileSize,
-                        y: subTileSize,
-                        size: subTileSize,
-                    },
-                    br: {
-                        x: tileSize + subTileSize,
-                        y: subTileSize,
-                        size: subTileSize,
-                    },
-                }
-            },
-            c: {
-                tiles: {
-                    tl: {
-                        x: 0,
-                        y: tileSize,
-                        size: tileSize,
-                    },
-                    tr: {
-                        x: tileSize,
-                        y: tileSize,
-                        size: tileSize,
-                    },
-                    bl: {
-                        x: 0,
-                        y: tileSize * 2,
-                        size: tileSize,
-                    },
-                    br: {
-                        x: tileSize,
-                        y: tileSize * 2,
-                        size: tileSize,
-                    },
-                    center: {
-                        x: subTileSize ,
-                        y: tileSize + subTileSize,
-                        size: tileSize,
-                    },
-                },
-                subtiles: [],
-            },
-        };
-
-        // generate section c
-        let row = 0;
-        let col = 0;
-
-        for (let i = 0; i < 16; i++) {
-            if (i > 0 && i % 4 === 0) {
-                row++;
-                col = 0;
-            }
-
-            template.c.subtiles.push({
-                x: subTileSize * col,
-                y: tileSize + (subTileSize * row),
-                size: subTileSize,
-            });
-
-            col++;
-        }
-
-        return template;
     }
 }
 
