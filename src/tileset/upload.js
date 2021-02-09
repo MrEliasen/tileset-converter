@@ -1,5 +1,5 @@
 /* eslint no-unused-vars: 0, no-debugger: 0 */
-import Tileset from './tileset.js'
+import Tileset from './tileset'
 
 class Upload {
     constructor(file) {
@@ -49,7 +49,19 @@ class Upload {
             return tileSize * 4;
         }
 
-        return tileSize * 6;
+        if (imageHeight === tileSize * 2) {
+            return tileSize * 3;
+        }
+
+        return tileSize * 7;
+    }
+
+    getTilesetWidth(imageHeight, tileSize) {
+        if (imageHeight === tileSize * 2) {
+            return tileSize * 6;
+        }
+
+        return tileSize * 12;
     }
 
     generateTileset() {
@@ -72,7 +84,7 @@ class Upload {
                     tileSize: tilesetWidth / 2,
                 };
 
-                this.result.canvas.width = (tilesetSize.tileSize * 12) * this.horizontalSheets;
+                this.result.canvas.width = this.getTilesetWidth(tilesetHeight, tilesetSize.tileSize) * this.horizontalSheets;
                 this.result.canvas.height = this.getTilesetHeight(tilesetHeight, tilesetSize.tileSize) * this.verticalSheets;
 
                 const tilesets = [];
