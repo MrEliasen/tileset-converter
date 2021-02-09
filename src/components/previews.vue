@@ -56,7 +56,8 @@
     export default {
         props: {
             tileset: Object,
-            onDelete: Function
+            onDelete: Function,
+            index: Number
         },
         data() {
             return {

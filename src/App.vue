@@ -40,6 +40,7 @@
                 <previews
                     v-for="(file, index) in files"
                     :key="index"
+                    :index="index"
                     :tileset="file"
                     :onDelete="removeImage"
                 />
@@ -168,7 +169,7 @@
 <script>
 import dropzone from './components/dropzone.vue'
 import previews from './components/previews.vue'
-import Upload from './tileset/upload.js'
+import Upload from './tileset/upload'
 
 export default {
     name: 'App',
