@@ -93,7 +93,7 @@
                                     What is an "A4" tileset and what does it convert to?
                                 </h3>
 
-                                <p class="text-base text-gray-700 mb-6">A4 or "wall" tilesets tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). This tool will attempt to convert the A4 part into a stacked "47" tilset like below. If you know how to map the wall tileset (green) to a 16 tileset (if at all possible), please let me know!</p>
+                                <p class="text-base text-gray-700 mb-6">A4 or "wall" tilesets tilesets consists of an "A2" tileset (blue) and a 4 tile wall tileset (green). This tool will attempt to convert the A2 (blue) part into a "47" tilset and will generate a 3x3 and 2x3 tileset variant of the wall (green) and stack it below.</p>
 
                                 <div class="flex justify-center items-center mt-8">
                                     <img alt="a4 tileset" src="./assets/a4-example.png">
